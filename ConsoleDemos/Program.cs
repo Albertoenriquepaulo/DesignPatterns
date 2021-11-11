@@ -1,4 +1,5 @@
-﻿using ConsoleDemos.FactoryPattern;
+﻿using ConsoleDemos.DependencyInjection;
+using ConsoleDemos.FactoryPattern;
 
 namespace ConsoleDemos
 {
@@ -6,6 +7,7 @@ namespace ConsoleDemos
 	 {
 		  static void Main(string[] args)
 		  {
+				// FACTORY
 				SaleFactory storeSaleFactory = new StoreSaleFactory(10);
 				SaleFactory internetSaleFactory = new InternetSaleFactory(20);
 
@@ -14,6 +16,12 @@ namespace ConsoleDemos
 
 				storeSaleObj.Sell(100);
 				internetSaleObj.Sell(1000);
+
+				// DEPENDENCY INJECTION
+				var beer = new Beer("Polar", "Light");
+				var drinkWithBeer = new DrinkWithBeer(10, 20, beer);
+				drinkWithBeer.Build();
+
 		  }
 	 }
 }
