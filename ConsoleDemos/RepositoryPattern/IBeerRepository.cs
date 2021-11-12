@@ -4,7 +4,7 @@ using ConsoleDemos.RepositoryPattern.Model;
 
 namespace ConsoleDemos.RepositoryPattern
 {
-    public interface IBeer
+    public interface IBeerRepository
     {
         IEnumerable<Beer> Get();
         Beer Get(int id);
