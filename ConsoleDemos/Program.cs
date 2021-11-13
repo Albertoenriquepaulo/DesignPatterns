@@ -50,6 +50,14 @@ namespace ConsoleDemos
 					 context.Beers.ToList().ForEach(b =>
 						 Console.WriteLine($"Name: {b.Name}\nStyle: {b.Style}\n")
 					 );
+
+					 var brandRepo = new Repository<Repository.Brand>(context);
+
+					 brandRepo.Add(new Repository.Brand() { Name = "Regional" });
+					 brandRepo.Save();
+					 context.Brands.ToList().ForEach(b =>
+						 Console.WriteLine($"Brand Name: {b.Name}\n")
+					 );
 				}
 
 				using (var context = new Repository.DesignPatternsContext())
@@ -61,6 +69,8 @@ namespace ConsoleDemos
 					 context.Beers.ToList().ForEach(b =>
 						 Console.WriteLine($"Name: {b.Name}\nStyle: {b.Style}\n")
 					 );
+
+
 				}
 		  }
 	 }
