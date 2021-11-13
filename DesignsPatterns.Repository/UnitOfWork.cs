@@ -2,7 +2,7 @@
 
 namespace DesignsPatterns.Repository
 {
-	 class UnitOfWork : IUnitOfWork
+	 public class UnitOfWork : IUnitOfWork
 	 {
 		  private readonly DesignPatternsContext _context;
 		  private IRepository<Beer> _beers;

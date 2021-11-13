@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Repository
+namespace UnitOfWork
 {
 	 public class Startup
 	 {
@@ -28,8 +28,7 @@ namespace Repository
 					 option.UseSqlServer(Configuration.GetConnectionString("Connection"));
 				});
 
-				services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-
+				services.AddScoped<IUnitOfWork, DesignsPatterns.Repository.UnitOfWork>();
 		  }
 
 		  // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
