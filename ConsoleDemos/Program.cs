@@ -2,6 +2,7 @@
 using ConsoleDemos.FactoryPattern;
 using ConsoleDemos.RepositoryPattern;
 using ConsoleDemos.RepositoryPattern.Generic;
+using ConsoleDemos.UnitOfWorkPattern;
 using System;
 using System.Linq;
 using Repository = ConsoleDemos.RepositoryPattern.Model;
@@ -69,8 +70,33 @@ namespace ConsoleDemos
 					 context.Beers.ToList().ForEach(b =>
 						 Console.WriteLine($"Name: {b.Name}\nStyle: {b.Style}\n")
 					 );
+				}
 
+				//UNIT OF WORK
+				// Implementing the same above (line 45 to 52) but using UnitOfWork
+				using (var context = new Repository.DesignPatternsContext())
+				{
+					 var unitOfWork = new UnitOfWork(context);
+					 var beerRepo = unitOfWork.Beers;
 
+					 beerRepo.Add(new Repository.Beer() { Name = "Heineken", Style = "IPA" });
+					 beerRepo.Save();
+					 context.Beers.ToList().ForEach(b =>
+						 Console.WriteLine($"Name: {b.Name}\nStyle: {b.Style}\n")
+					 );
+
+					 var brandRepo = unitOfWork.Brands;
+
+					 brandRepo.Add(new Repository.Brand() { Name = "Volt Damn" });
+					 brandRepo.Save();
+					 context.Brands.ToList().ForEach(b =>
+						 Console.WriteLine($"Brand Name: {b.Name}\n")
+					 );
+
+					 var beerList = beerRepo.Get();
+					 var brandList = brandRepo.Get();
+
+					 unitOfWork.Save();
 				}
 		  }
 	 }

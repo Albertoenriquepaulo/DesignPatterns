@@ -13,11 +13,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factory", "Factory\Factory.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection", "DependencyInjection\DependencyInjection.csproj", "{C6011D77-7D03-42F6-ADD8-544B11ED4455}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.Models", "DesignPatterns.Models\DesignPatterns.Models.csproj", "{72A26D12-36F9-4BAF-8342-62742E4ACA5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns.Models", "DesignPatterns.Models\DesignPatterns.Models.csproj", "{72A26D12-36F9-4BAF-8342-62742E4ACA5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignsPatterns.Repository", "DesignsPatterns.Repository\DesignsPatterns.Repository.csproj", "{5FEF0DB4-FD8F-4BA6-9FC8-BA846B77D7F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignsPatterns.Repository", "DesignsPatterns.Repository\DesignsPatterns.Repository.csproj", "{5FEF0DB4-FD8F-4BA6-9FC8-BA846B77D7F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{0C57B458-667B-49EB-85B4-71C050DF0D63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{0C57B458-667B-49EB-85B4-71C050DF0D63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{351092C3-ECB8-47F6-B498-D3B081692193}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ASP", "ASP", "{6DEC20F0-7A5E-435C-BD05-088B7FA75786}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{ACA3EDBF-616B-49FA-B4FF-F092D8BA689C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +66,16 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95F4E6F2-C1EF-4222-9645-E0EB7BB56762} = {6DEC20F0-7A5E-435C-BD05-088B7FA75786}
+		{714203A0-EE64-4304-B5C9-E2B8812949F4} = {ACA3EDBF-616B-49FA-B4FF-F092D8BA689C}
+		{C9A84054-E0E5-4E3D-86AE-19B4F4116817} = {351092C3-ECB8-47F6-B498-D3B081692193}
+		{0F0730EC-43D6-4B8E-9468-A532F5A27595} = {6DEC20F0-7A5E-435C-BD05-088B7FA75786}
+		{C6011D77-7D03-42F6-ADD8-544B11ED4455} = {6DEC20F0-7A5E-435C-BD05-088B7FA75786}
+		{72A26D12-36F9-4BAF-8342-62742E4ACA5E} = {ACA3EDBF-616B-49FA-B4FF-F092D8BA689C}
+		{5FEF0DB4-FD8F-4BA6-9FC8-BA846B77D7F6} = {ACA3EDBF-616B-49FA-B4FF-F092D8BA689C}
+		{0C57B458-667B-49EB-85B4-71C050DF0D63} = {6DEC20F0-7A5E-435C-BD05-088B7FA75786}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88FE74E3-B9B6-413D-BC4A-2FFF767AC3AF}
