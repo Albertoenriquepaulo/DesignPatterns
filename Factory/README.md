@@ -1,4 +1,4 @@
-# Strategy Pattern 
+# Factory Pattern 
 
 ![Factory](Factory.png)
 

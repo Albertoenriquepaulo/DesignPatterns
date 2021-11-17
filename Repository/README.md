@@ -1,4 +1,4 @@
-# Strategy Pattern 
+# Repository Pattern 
 
 ![Repository](Repository.png)
 
