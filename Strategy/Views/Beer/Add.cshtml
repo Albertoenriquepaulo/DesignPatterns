@@ -1,0 +1,35 @@
+﻿@using Strategy.Models.ViewModels
+@model BeerFormViewModel
+
+<form asp-controller="Beer" asp-action="Add" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>  
+    
+    <div class="form-group">
+        <label asp-for="Style"></label>
+        <input class="form-control" asp-for="Style">
+        <span asp-validation-for="Style" class="text-danger"></span>
+    </div>  
+    
+    <div class="form-group">
+        <label asp-for="BrandId"></label>
+        <select class="form-control" asp-for="BrandId" asp-items="@ViewBag.Brands">
+            <option value="">-- Select brand --</option>
+        </select>
+        <span asp-validation-for="BrandId" class="text-danger"></span>
+    </div>  
+    
+    <div class="form-group">
+        <label asp-for="NewBrandName"></label>
+        <input class="form-control" asp-for="NewBrandName">
+        <span asp-validation-for="NewBrandName" class="text-danger"></span>
+    </div>  
+
+
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit">Save</button>
+    </div>  
+</form>

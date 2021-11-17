@@ -1,5 +1,8 @@
-﻿using DesignsPatterns.Repository;
+﻿using DesignPatterns.Models.Data;
+using DesignsPatterns.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Linq;
 using UnitOfWork.Models.ViewModels;
 
@@ -26,5 +29,52 @@ namespace UnitOfWork.Controllers
 
 				return View("Index", beerList);
 		  }
-	 }
+
+		[HttpGet]
+		public IActionResult Add()
+        {
+			var brands = _unitOfWork.Brands.Get();
+			ViewBag.Brands = new SelectList(brands,"Id", "Name");
+
+			return View();
+
+        }
+		
+		[HttpPost]
+        public IActionResult Add(BeerFormViewModel beerFormViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                var brands = _unitOfWork.Brands.Get();
+                ViewBag.Brands = new SelectList(brands, "BrandId", "Name");
+
+                return View("Add", beerFormViewModel);
+            }
+
+            if (new Brand() is var brand && beerFormViewModel.BrandId == null)
+            {
+				beerFormViewModel.BrandId = Guid.NewGuid();
+                brand = new Brand()
+                {
+                    Name = beerFormViewModel.NewBrandName,
+                    Id = (Guid)beerFormViewModel.BrandId
+                };
+
+                _unitOfWork.Brands.Add(brand);
+
+            }
+
+            var beer = new Beer()
+            {
+                Name = beerFormViewModel.Name,
+                Style = beerFormViewModel.Style,
+                BrandId = (Guid)beerFormViewModel.BrandId
+            };
+
+            _unitOfWork.Beers.Add(beer);
+            _unitOfWork.Save();
+
+            return RedirectToAction("Index");
+        }
+	}
 }

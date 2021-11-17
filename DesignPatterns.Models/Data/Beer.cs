@@ -11,5 +11,7 @@ namespace DesignPatterns.Models.Data
         public string Name { get; set; }
         public string Style { get; set; }
         public Guid BrandId { get; set; }
+
+        public virtual Brand Brand { get; set; }
     }
 }
